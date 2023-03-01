@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Simple script that converts U and UU into a MATLAB-readable format
+# Suggested usage: cd postprocessing/planarAveraging/
+#	 mkdir matlabFiles
+#	 cd 0
+# 	 cp -r . ../matlabFiles
+# 	 cd ../matlabFiles
+#        Copy convertU from wherever you downloaded it into the matlabFiles directory 
+# 	 ./convertU
+# You can then copy the 3 .txt files to your computer or wherever you are using MATLAB. 
+
+sed "s/)//g" U > U2
+sed "s/(//g" U2 > U3
+
+rm U U2
+mv U3 U.txt
+
+sed "s/)//g" UU > UU2
+sed "s/(//g" UU2 > UU3
+
+rm UU UU2
+mv UU3 UU.txt
+
+mv T T.txt
+
+
